@@ -1,11 +1,11 @@
 #
-# Debian Thai mirror containers
+# Debian (Thai mirror) image
 #
 
 FROM debian:8.1
 
 # Change mirror
-RUN sed -i "s/httpredir.debian.org/mirror1.ku.ac.th/" /etc/apt/sources.list
+RUN sed -i "s/httpredir.debian.org/ftp.th.debian.org/" /etc/apt/sources.list
 
 #
 # Build command:
