@@ -11,6 +11,3 @@ RUN sed -i "s/archive.ubuntu.com/th.archive.ubuntu.com/" /etc/apt/sources.list
 # Build command:
 # docker build -t "sungsit/ubuntu:thai-mirror" .
 #
-# Test command:
-# docker run -it --rm "sungsit/ubuntu:thai-mirror" echo "Hello Ubuntu (thai-mirror)!"
-#
