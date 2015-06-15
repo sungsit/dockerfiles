@@ -1,5 +1,5 @@
 #
-# Debian (Thai mirror) image
+# Debian 8.1 (Thai mirror) image
 #
 
 FROM debian:8.1

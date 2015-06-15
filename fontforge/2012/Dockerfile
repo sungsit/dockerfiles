@@ -1,39 +1,37 @@
 #
-# FontForge 2012 container
-# Sometimes I need older FontForge to test my fonts.
+# FontForge (2012 + Python Extension)
+# Sometimes I need older FontForge to test some fonts.
 #
 
-# To use Debian official image, change to `FROM debian:8.1` 
-FROM sungsit/debian:thai-mirror
+FROM debian:8.1
+
 MAINTAINER Sungsit Sawaiwan
 
-# Install minimal packages
+# Install minimal packages:
+# `ttf-unifonts` pkg is required for displaying unicode glyphs 
 RUN apt-get -y update && \
-    apt-get -y --no-install-recommends install sudo \
-    fontforge python-fontforge ttf-unifont && \
-    rm -rf /var/cache/apt/* /var/lib/apt/lists/*
+    apt-get -y --no-install-recommends install \
+      fontforge \
+      python-fontforge \
+      ttf-unifont
+
+# Cleanup
+RUN rm -rf /var/lib/apt/lists/*
 
 # Basic fontfonfig
 COPY local.conf /etc/fonts/local.conf
 
 # Add fontdev user
-ENV USER=fontdev HOME=/home/$USER
+ENV USER=fontdev HOME=/home/fontdev
 RUN useradd --create-home --home-dir $HOME $USER && \
     chown -R $USER:$USER $HOME
 
+# Set default command & working dir for fontdev user.
 USER $USER
 WORKDIR $HOME
-
-ENTRYPOINT [ "fontforge" ]
+CMD [ "fontforge" ]
 
 #
 # Build command:
 # docker build -t "sungsit/fontforge:2012" .
-#
-# Test command: Mount Unix socket
-#
-# Linux host
-# docker run -it --rm -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix "sungsit/fontforge:2012"
-#
-# Mac host, see https://github.com/docker/docker/issues/8710#issuecomment-71113263
 #

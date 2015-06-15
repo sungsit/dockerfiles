@@ -12,3 +12,6 @@
 
 pkg/
 src/
+
+# My local Dockerfiles
+Dockerfile.th
