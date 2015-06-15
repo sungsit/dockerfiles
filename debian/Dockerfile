@@ -1,7 +1,5 @@
 #
-# Debian Thai mirror
-# Because HTTPREDIR is not fast enough for me,
-# see http://httpredir.debian.org/ 
+# Debian Thai mirror containers
 #
 
 FROM debian:8.1
@@ -21,5 +19,5 @@ RUN echo "deb ${mirror} ${dist} ${compo}" > ${list} && \
 # docker build -t "sungsit/debian:thai-mirror" .
 #
 # Test command:
-# docker run -it --rm "sungsit/debian:thai-mirror" echo "Hello Docker!"
+# docker run -it --rm "sungsit/debian:thai-mirror" echo "Hello Debian (thai-mirror)!"
 #
