@@ -1,4 +1,4 @@
-# FontForge on Archlinux (size:672.5MB)
+# FontForge on Archlinux (size: 604.8MB)
 
 Archlinux mininal image to run Fontforge (+Python extension) container through X11-Unix socket. The container user name is `fontdev`.
 

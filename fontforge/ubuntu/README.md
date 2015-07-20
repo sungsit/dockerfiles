@@ -1,13 +1,13 @@
-# FontForge 2012 Container
+# FontForge on Ubuntu (size: 312.9 MB)
 
-To build Debian mininal image to run older Fontforge (2012 + Python extension) container through X11-Unix socket. The container user name is `fontdev`.
+Ubuntu mininal image to run Fontforge (+Python extension) container through X11-Unix socket. The container user name is `fontdev`.
 
 Sample `docker` commands:
 
 1. Test without saving container.
 
   ```
-  docker run -it --rm -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sungsit/fontforge:2012
+  docker run -it --rm -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sungsit/fontforge:ubuntu
   ``` 
 
 2. Mount your projects dir without saving container.
@@ -16,7 +16,7 @@ Sample `docker` commands:
   docker run -it --rm -e DISPLAY=unix$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /host/projects:/docker/projects \
-    sungsit/fontforge:2012
+    sungsit/fontforge:ubuntu
   ```
 
 Mac OS host: See <https://github.com/docker/docker/issues/8710#issuecomment-71113263>
